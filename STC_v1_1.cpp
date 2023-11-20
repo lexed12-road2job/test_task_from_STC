@@ -6,13 +6,12 @@
 
 #include <iostream>
 #include <stdio.h> 
-#include "Smooth.h"
-#include <chrono>
 
 
 
 int main()
 {
+    setlocale(LC_ALL, "RUS");
     run();
     std::cout << "Hello World!\n";
 }

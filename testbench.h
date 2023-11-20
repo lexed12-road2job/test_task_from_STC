@@ -1,16 +1,15 @@
 #pragma once
-#include <iostream>
 
-#include "math.h"
-#include <stdio.h> 
-#include <time.h> 
-#include <chrono>
+#include "Smooth.h"
 
-const long n_mass_storage = 500000000;
+
+
+const long n_mass_storage = 5000000;
 const int cnst_wind_flt = 128;
 const int cnst_wind_dbl = 128;
 
 void run(){
+    
     //------------------------------------------------------------------------------
     // Инициализация
     //------------------------------------------------------------------------------

@@ -2,12 +2,11 @@
 // или включаемые файлы для конкретного проекта.
 
 #pragma once
-#include "Smooth.h"
+
 #include <iostream>
 
 #include "math.h"
 #include <stdio.h> 
-#include <time.h> 
 #include <chrono>
 
 void smooth(const double* input, double* output, const int n, const int window);
