@@ -62,5 +62,6 @@ void run(){
     
     delete[]Arr1;
     delete[]Arr2;
-    
+    delete[]Arr1_f;
+    delete[]Arr2_f;
 }
