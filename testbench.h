@@ -2,14 +2,16 @@
 
 #include "SMA_aver_calc.h"
 
-const int n_mass_storage = 5000000;
+const int N_MASS_STORAGE = 5000000;
+const int MIN_WINDOW_SIZE = 4;
+const int MAX_WINDOW_SIZE = 128;
 
-void fill_arrays(const int n_mass_storage, double* Arr1, float* Arr1_f) {
+void fill_arrays(const int N_MASS_STORAGE, double* Arr1, float* Arr1_f) {
     
     srand(time(NULL));
     double num;
      float num1;
-    for (int i = 0; i < n_mass_storage; i++)
+    for (int i = 0; i < N_MASS_STORAGE; i++)
     {
         num = rand() % 200 + 1;         // random numbers from 0 to 200
         Arr1[i] = num;
@@ -21,23 +23,23 @@ void fill_arrays(const int n_mass_storage, double* Arr1, float* Arr1_f) {
 void run(){
     
     double* Arr1;
-    Arr1 = new double[n_mass_storage]; 
+    Arr1 = new double[N_MASS_STORAGE]; 
     srand(time(NULL));
     double num;
 
     double* Arr2;
-    Arr2 = new double[n_mass_storage]; 
+    Arr2 = new double[N_MASS_STORAGE]; 
 
     float* Arr1_f;
-    Arr1_f = new float[n_mass_storage]; 
+    Arr1_f = new float[N_MASS_STORAGE]; 
     float num1;
 
     float* Arr2_f;
-    Arr2_f = new float[n_mass_storage]; 
+    Arr2_f = new float[N_MASS_STORAGE]; 
 
     //------------------------------------------------------------------------------
 
-    fill_arrays(n_mass_storage, Arr1, Arr1_f);
+    fill_arrays(N_MASS_STORAGE, Arr1, Arr1_f);
     
     //------------------------------------------------------------------------------
     std::ofstream fout;
@@ -45,14 +47,14 @@ void run(){
     
     //Filling in run-time values with a different window for double and float
 
-    for (int window_size = 4; window_size < 129; window_size *= 2)
+    for (int window_size = MIN_WINDOW_SIZE; window_size <= MAX_WINDOW_SIZE; window_size *= 2)
     {
-        fout << productivity_time_measuring(Arr1, Arr2, n_mass_storage, window_size) << '\t' << window_size << std::endl;
+        fout << productivity_time_measuring(Arr1, Arr2, N_MASS_STORAGE, window_size) << '\t' << window_size << std::endl;
     }
     std::cout << "_________" << std::endl;
-    for (int window_size = 4; window_size < 129; window_size *= 2)
+    for (int window_size = MIN_WINDOW_SIZE; window_size <= MAX_WINDOW_SIZE; window_size *= 2)
     {
-        fout << productivity_time_measuring(Arr1_f, Arr2_f, n_mass_storage, window_size) << '\t' << window_size << std::endl;      
+        fout << productivity_time_measuring(Arr1_f, Arr2_f, N_MASS_STORAGE, window_size) << '\t' << window_size << std::endl;      
     }
 
     fout.close();
