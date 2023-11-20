@@ -1,13 +1,8 @@
 #pragma once
 
-
-#include "Smooth.h"
-
-
-
+#include "SMA_aver_calc.h"
 
 const int n_mass_storage = 5000000;
-
 
 void fill_arrays(const int n_mass_storage, double* Arr1, float* Arr1_f) {
     
@@ -47,7 +42,10 @@ void run(){
     
     //------------------------------------------------------------------------------
     std::ofstream fout;
-    fout.open("excell.txt");
+    fout.open("excell.txt"); 
+    
+    //Заполнение значений времени выполнения при различном окне для double и float
+
     for (int window_size = 4; window_size < 129; window_size *= 2)
     {
         fout << productivity_time_measuring(Arr1, Arr2, n_mass_storage, window_size) << '\t' << window_size << std::endl;
@@ -61,9 +59,6 @@ void run(){
     fout.close();
     //------------------------------------------------------------------------------
     
-
-
-    //------------------------------------------------------------------------------
     delete[]Arr1;
     delete[]Arr2;
     

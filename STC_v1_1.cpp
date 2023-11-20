@@ -1,7 +1,7 @@
 ﻿// STC_v1_1.cpp: определяет точку входа для приложения.
 //
 
-#include "Smooth.h"
+
 #include "testbench.h"
 
 #include <iostream>

@@ -4,6 +4,6 @@
 cmake_minimum_required (VERSION 3.8)
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (STC_v1_1 "STC_v1_1.cpp" "Smooth.h" "testbench.h")
+add_executable (STC_v1_1 "STC_v1_1.cpp" "SMA_aver_calc.h" "testbench.h")
 
 # TODO: Добавьте тесты и целевые объекты, если это необходимо.
