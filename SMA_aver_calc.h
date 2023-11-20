@@ -50,19 +50,19 @@ void SMA_aver_calc(const double* input, double* output, const int n, const int w
 
     for (int i = 0; i < window; i++)
     {
-        tmp = tmp + input[i];                                   //Считаем среднее первого окна
+        tmp = tmp + input[i];                                   //Сalculate the average of the first window
     }
     output[0] = tmp * wind_1;
 
     for (int i = window; i <= n; i++)
     {
         output[i - window + 1] = output[i - window] +
-            wind_1 * (input[i] - input[i - window]);            //Считаем среднее шагающего окна
+            wind_1 * (input[i] - input[i - window]);            //We consider the average of the walking window
     }
 }
 void SMA_aver_calc(const float* input, float* output, const int n, const int window)
 {
-    const float wind_1 = powf(window, -1); //находим обратное значение числа элементов окна для оптимизации деления
+    const float wind_1 = powf(window, -1); //we find the inverse value of the number of window elements to optimize the division
 
     float tmp = 0;
 
@@ -80,4 +80,4 @@ void SMA_aver_calc(const float* input, float* output, const int n, const int win
     }
 }
 
-// TODO: установите здесь ссылки на дополнительные заголовки, требующиеся для программы.
+

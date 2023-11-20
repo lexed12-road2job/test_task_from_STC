@@ -11,7 +11,7 @@ void fill_arrays(const int n_mass_storage, double* Arr1, float* Arr1_f) {
      float num1;
     for (int i = 0; i < n_mass_storage; i++)
     {
-        num = rand() % 200 + 1;         // случайные числа от 0 до 200
+        num = rand() % 200 + 1;         // random numbers from 0 to 200
         Arr1[i] = num;
         num1 = rand() % 200 + 1;        
         Arr1_f[i] = num1;
@@ -30,7 +30,6 @@ void run(){
 
     float* Arr1_f;
     Arr1_f = new float[n_mass_storage]; 
-    srand(time(NULL));
     float num1;
 
     float* Arr2_f;
@@ -44,7 +43,7 @@ void run(){
     std::ofstream fout;
     fout.open("excell.txt"); 
     
-    //Заполнение значений времени выполнения при различном окне для double и float
+    //Filling in run-time values with a different window for double and float
 
     for (int window_size = 4; window_size < 129; window_size *= 2)
     {
