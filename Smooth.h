@@ -5,43 +5,41 @@
 
 #include <iostream>
 
+
 #include "math.h"
 #include <stdio.h> 
 #include <chrono>
+#include "fstream"
 
 void smooth(const double* input, double* output, const int n, const int window);
 void smooth(const float* input, float* output, const int n, const int window);
 
-void time_measuring(const float* input, float* output, const int n, const int window);
-void time_measuring(const double* input, double* output, const int n, const int window);
+double  productivity_time_measuring(const float* input, float* output, const int n, const int window);
+double  productivity_time_measuring(const double* input, double* output, const int n, const int window);
 
-void time_measuring(const float* input, float* output, const int n, const int window)
+double productivity_time_measuring(const float* input, float* output, const int n, const int window)
 {
+    
     auto start = std::chrono::steady_clock::now();
-
-    //  Insert the code that will be timed
     smooth(input, output, n, window);
     auto end = std::chrono::steady_clock::now();
-
-    // Store the time difference between start and end
     auto diff = end - start;
-
-
+    
     std::cout << std::chrono::duration <double, std::milli>(diff).count() << " ms" << std::endl;
+    
+    return std::chrono::duration <double, std::milli>(diff).count();
 }
-void time_measuring(const double* input, double* output, const int n, const int window)
+double productivity_time_measuring(const double* input, double* output, const int n, const int window)
 {
     auto start = std::chrono::steady_clock::now();
-
-    //  Insert the code that will be timed
     smooth(input, output, n, window);
     auto end = std::chrono::steady_clock::now();
-
-    // Store the time difference between start and end
     auto diff = end - start;
-
-
+    
     std::cout << std::chrono::duration <double, std::milli>(diff).count() << " ms" << std::endl;
+
+    return std::chrono::duration <double, std::milli>(diff).count();
+   
 }
 
 void smooth(const double* input, double* output, const int n, const int window)
